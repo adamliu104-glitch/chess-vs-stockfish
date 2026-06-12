@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Shadow -->
+  <ellipse cx="50" cy="97" rx="28" ry="5" fill="rgba(0,0,0,0.25)"/>
+  <!-- Gown skirt -->
+  <path d="M 18 95 L 28 62 Q 50 70 72 62 L 82 95 Z" fill="#7a3f8e"/>
+  <!-- Gown bodice -->
+  <rect x="34" y="55" width="32" height="18" rx="8" fill="#8b4da0"/>
+  <!-- Green skin neck -->
+  <rect x="43" y="47" width="14" height="11" fill="#7dcb3e"/>
+  <!-- Head -->
+  <ellipse cx="50" cy="34" rx="25" ry="24" fill="#7dcb3e"/>
+  <!-- Ears (ogre) -->
+  <ellipse cx="27" cy="30" rx="6" ry="11" fill="#7dcb3e" transform="rotate(-20,27,30)"/>
+  <ellipse cx="73" cy="30" rx="6" ry="11" fill="#7dcb3e" transform="rotate(20,73,30)"/>
+  <!-- Hair bun (auburn) -->
+  <ellipse cx="50" cy="16" rx="20" ry="12" fill="#b84a10"/>
+  <ellipse cx="35" cy="22" rx="10" ry="8" fill="#c85820"/>
+  <ellipse cx="65" cy="22" rx="10" ry="8" fill="#c85820"/>
+  <ellipse cx="50" cy="13" rx="10" ry="8" fill="#d4601e"/>
+  <!-- Eyes -->
+  <ellipse cx="41" cy="33" rx="6.5" ry="6.5" fill="white"/>
+  <ellipse cx="59" cy="33" rx="6.5" ry="6.5" fill="white"/>
+  <circle cx="42.5" cy="34" r="4" fill="#2d1f00"/>
+  <circle cx="60.5" cy="34" r="4" fill="#2d1f00"/>
+  <circle cx="44" cy="32" r="1.5" fill="white"/>
+  <circle cx="62" cy="32" r="1.5" fill="white"/>
+  <!-- Nose -->
+  <ellipse cx="50" cy="41" rx="7" ry="5" fill="#5cb82e"/>
+  <circle cx="46" cy="41" r="2.5" fill="#4aa020"/>
+  <circle cx="54" cy="41" r="2.5" fill="#4aa020"/>
+  <!-- Smile -->
+  <path d="M 40 48 Q 50 55 60 48" stroke="#3d6018" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <!-- Crown (Queen) -->
+  <path d="M 30 10 L 35 0 L 50 8 L 65 0 L 70 10 Z" fill="#FFD700" stroke="#c89000" stroke-width="1.5"/>
+  <circle cx="50" cy="9" r="4" fill="#FFD700" stroke="#c89000" stroke-width="1"/>
+  <circle cx="34.5" cy="1.5" r="2.5" fill="#cc2200"/>
+  <circle cx="65.5" cy="1.5" r="2.5" fill="#cc2200"/>
+  <rect x="28" y="10" width="44" height="7" rx="2.5" fill="#e8c000" stroke="#c89000" stroke-width="1"/>
+  <!-- Freckles -->
+  <circle cx="44" cy="44" r="1.5" fill="#4aa020" opacity="0.7"/>
+  <circle cx="56" cy="44" r="1.5" fill="#4aa020" opacity="0.7"/>
+</svg>

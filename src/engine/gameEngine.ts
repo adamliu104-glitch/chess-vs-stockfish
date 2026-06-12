@@ -1,5 +1,5 @@
 import { Chess, type Move } from 'chess.js'
-import type { Square, Color, PieceSymbol, BoardPiece, GameStatus, MoveRecord } from './types'
+import type { Square, Color, PieceSymbol, BoardPiece, GameStatus, MoveRecord, CapturedPieces } from './types'
 
 export function createGame() {
   return new Chess()
@@ -79,4 +79,20 @@ export function getTurn(game: Chess): Color {
 
 export function isGameOver(game: Chess): boolean {
   return game.isGameOver()
+}
+
+const PIECE_ORDER: Record<PieceSymbol, number> = { q: 0, r: 1, b: 2, n: 3, p: 4, k: 5 }
+
+export function getCapturedPieces(game: Chess): CapturedPieces {
+  const byWhite: PieceSymbol[] = []
+  const byBlack: PieceSymbol[] = []
+  for (const move of game.history({ verbose: true })) {
+    if (move.captured) {
+      if (move.color === 'w') byWhite.push(move.captured as PieceSymbol)
+      else byBlack.push(move.captured as PieceSymbol)
+    }
+  }
+  byWhite.sort((a, b) => PIECE_ORDER[a] - PIECE_ORDER[b])
+  byBlack.sort((a, b) => PIECE_ORDER[a] - PIECE_ORDER[b])
+  return { byWhite, byBlack }
 }

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Shadow -->
+  <ellipse cx="50" cy="97" rx="28" ry="5" fill="rgba(0,0,0,0.25)"/>
+  <!-- Armor body -->
+  <rect x="28" y="58" width="44" height="37" rx="8" fill="#9eaab4"/>
+  <!-- Chainmail texture lines -->
+  <path d="M 28 65 Q 50 68 72 65 M 28 73 Q 50 76 72 73 M 28 81 Q 50 84 72 81" stroke="#7a8890" stroke-width="1.2" fill="none" opacity="0.6"/>
+  <!-- Tabard (white/green cross) -->
+  <rect x="44" y="58" width="12" height="37" fill="white" opacity="0.9"/>
+  <rect x="28" y="71" width="44" height="12" fill="white" opacity="0.9"/>
+  <path d="M 44 71 L 56 71 L 56 83 L 44 83 Z" fill="#cc2200" opacity="0.8"/>
+  <!-- Neck/gorget -->
+  <rect x="39" y="50" width="22" height="12" rx="4" fill="#8a9aa4"/>
+  <!-- Helmet -->
+  <ellipse cx="50" cy="36" rx="26" ry="24" fill="#b0bcc4"/>
+  <!-- Visor (dark slit) -->
+  <rect x="32" y="33" width="36" height="8" rx="3" fill="#2a2a2a"/>
+  <path d="M 32 37 L 68 37" stroke="#444" stroke-width="1" fill="none"/>
+  <!-- Helmet crest/ridge -->
+  <path d="M 50 12 Q 52 15 54 12 Q 56 9 54 7 Q 52 5 50 7 Q 48 9 46 7 Q 44 5 46 12 Z" fill="#cc2200"/>
+  <!-- Plume -->
+  <path d="M 50 7 Q 45 0 40 3 Q 38 0 35 4 Q 33 1 30 6 Q 38 8 50 7 Z" fill="#cc2200"/>
+  <!-- Helmet visor bolts -->
+  <circle cx="36" cy="33" r="2" fill="#7a8890"/>
+  <circle cx="64" cy="33" r="2" fill="#7a8890"/>
+  <!-- Shield on arm (implied) -->
+  <ellipse cx="18" cy="72" rx="10" ry="14" fill="#8a9aa4" stroke="#6a7a84" stroke-width="1.5"/>
+  <path d="M 14 72 L 22 72" stroke="#5a6a74" stroke-width="1.5"/>
+  <path d="M 18 67 L 18 77" stroke="#5a6a74" stroke-width="1.5"/>
+</svg>

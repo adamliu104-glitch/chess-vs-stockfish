@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Shadow -->
+  <ellipse cx="50" cy="97" rx="26" ry="5" fill="rgba(0,0,0,0.3)"/>
+  <!-- Body / cape -->
+  <path d="M 22 95 L 30 62 Q 50 70 70 62 L 78 95 Z" fill="#6b3010"/>
+  <rect x="33" y="55" width="34" height="24" rx="7" fill="#8b4820"/>
+  <!-- Belt with sword -->
+  <rect x="33" y="72" width="34" height="6" rx="3" fill="#5a3010"/>
+  <rect x="47" y="69" width="6" height="12" rx="2" fill="#888"/>
+  <!-- Neck -->
+  <rect x="43" y="47" width="14" height="11" fill="#e8952a"/>
+  <!-- Orange cat head -->
+  <ellipse cx="50" cy="34" rx="23" ry="22" fill="#e8952a"/>
+  <!-- Ears (cat, pointed) -->
+  <path d="M 32 18 Q 28 4 36 8 L 38 22 Z" fill="#e8952a"/>
+  <path d="M 33 18 Q 30 7 36 9 L 37 20 Z" fill="#dd6a20"/>
+  <path d="M 68 18 Q 72 4 64 8 L 62 22 Z" fill="#e8952a"/>
+  <path d="M 67 18 Q 70 7 64 9 L 63 20 Z" fill="#dd6a20"/>
+  <!-- Big hat (musketeer) -->
+  <ellipse cx="50" cy="20" rx="32" ry="8" fill="#2a1a0a"/>
+  <path d="M 18 20 Q 50 8 82 20" stroke="#1a0a00" stroke-width="2" fill="none"/>
+  <!-- Hat feather -->
+  <path d="M 75 16 Q 90 5 95 -2 Q 88 8 82 12 Q 88 6 90 0 Q 84 10 78 14" stroke="#cc0000" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M 75 16 Q 86 8 88 4 Q 82 12 76 16" stroke="#ff3300" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Eyes (the FAMOUS pleading big eyes) -->
+  <ellipse cx="41" cy="35" rx="9" ry="9" fill="white"/>
+  <ellipse cx="59" cy="35" rx="9" ry="9" fill="white"/>
+  <circle cx="41.5" cy="36" r="6.5" fill="#2a6000"/>
+  <circle cx="59.5" cy="36" r="6.5" fill="#2a6000"/>
+  <circle cx="42" cy="37" r="5" fill="#1a0000"/>
+  <circle cx="60" cy="37" r="5" fill="#1a0000"/>
+  <circle cx="43.5" cy="34" r="2.5" fill="white"/>
+  <circle cx="61.5" cy="34" r="2.5" fill="white"/>
+  <!-- Whiskers -->
+  <line x1="22" y1="45" x2="42" y2="43" stroke="#ddd" stroke-width="1.2"/>
+  <line x1="22" y1="49" x2="42" y2="47" stroke="#ddd" stroke-width="1.2"/>
+  <line x1="58" y1="43" x2="78" y2="45" stroke="#ddd" stroke-width="1.2"/>
+  <line x1="58" y1="47" x2="78" y2="49" stroke="#ddd" stroke-width="1.2"/>
+  <!-- Nose (small cat nose) -->
+  <path d="M 47 42 Q 50 45 53 42 L 50 40 Z" fill="#cc4488"/>
+  <!-- Mouth -->
+  <path d="M 44 47 Q 47 50 50 48 Q 53 50 56 47" stroke="#cc4488" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <!-- Sword pommel -->
+  <circle cx="50" cy="68" r="3.5" fill="#c8a030"/>
+</svg>

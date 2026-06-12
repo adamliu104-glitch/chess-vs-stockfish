@@ -5,6 +5,7 @@ import { GameStatus } from './components/GameStatus'
 import { MoveHistory } from './components/MoveHistory'
 import { PromotionModal } from './components/PromotionModal'
 import { GameOverModal } from './components/GameOverModal'
+import { UsernameModal } from './components/UsernameModal'
 import { useChessGame } from './hooks/useChessGame'
 import type { BoardTheme } from './engine/types'
 import { BOARD_THEMES } from './engine/types'
@@ -13,6 +14,10 @@ import './App.css'
 function loadTheme(): BoardTheme {
   const saved = localStorage.getItem('boardTheme')
   return BOARD_THEMES.some((t) => t.id === saved) ? (saved as BoardTheme) : 'walnut'
+}
+
+function loadUsername(): string | null {
+  return localStorage.getItem('username')
 }
 
 export default function App() {
@@ -34,12 +39,15 @@ export default function App() {
     whiteMs,
     blackMs,
     clockStarted,
+    paused,
+    capturedPieces,
     handleSquareClick,
     handlePromotion,
     newGame,
     flipBoard,
     setDifficulty,
     setTimeControl,
+    togglePause,
   } = useChessGame()
 
   const [boardTheme, setBoardTheme] = useState<BoardTheme>(loadTheme)
@@ -47,7 +55,12 @@ export default function App() {
     localStorage.setItem('boardTheme', boardTheme)
   }, [boardTheme])
 
-  // Result popup: appears shortly after the game ends so the final move lands first
+  const [username, setUsername] = useState<string | null>(loadUsername)
+  function handleUsernameConfirm(name: string) {
+    localStorage.setItem('username', name)
+    setUsername(name)
+  }
+
   const isOver =
     status === 'checkmate' || status === 'stalemate' || status === 'draw' || status === 'timeout'
   const [showResult, setShowResult] = useState(false)
@@ -66,8 +79,11 @@ export default function App() {
         status={status}
         turn={turn}
         isThinking={isThinking}
+        paused={paused}
+        clockStarted={clockStarted}
         onNewGame={newGame}
         onFlipBoard={flipBoard}
+        onTogglePause={togglePause}
       />
 
       <main className="main">
@@ -80,6 +96,7 @@ export default function App() {
             checkSquare={checkSquare}
             orientation={orientation}
             theme={boardTheme}
+            paused={paused}
             onSquareClick={handleSquareClick}
           />
         </div>
@@ -89,6 +106,7 @@ export default function App() {
             status={status}
             turn={turn}
             playerColor={playerColor}
+            username={username ?? 'Player'}
             difficulty={difficulty}
             onDifficultyChange={setDifficulty}
             onNewGame={newGame}
@@ -99,6 +117,7 @@ export default function App() {
             onTimeControlChange={setTimeControl}
             boardTheme={boardTheme}
             onBoardThemeChange={setBoardTheme}
+            capturedPieces={capturedPieces}
           />
           <MoveHistory moves={moveHistory} />
         </aside>
@@ -116,6 +135,10 @@ export default function App() {
           onNewGame={newGame}
           onClose={() => setShowResult(false)}
         />
+      )}
+
+      {username === null && (
+        <UsernameModal onConfirm={handleUsernameConfirm} />
       )}
     </div>
   )

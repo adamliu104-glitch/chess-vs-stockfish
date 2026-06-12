@@ -4,8 +4,11 @@ type Props = {
   status: GameStatusType
   turn: Color
   isThinking: boolean
+  paused: boolean
+  clockStarted: boolean
   onNewGame: () => void
   onFlipBoard: () => void
+  onTogglePause: () => void
 }
 
 const STATUS_MESSAGES: Record<GameStatusType, (turn: Color) => string> = {
@@ -17,7 +20,13 @@ const STATUS_MESSAGES: Record<GameStatusType, (turn: Color) => string> = {
   timeout: (turn) => `${turn === 'w' ? 'White' : 'Black'} flagged — ${turn === 'w' ? 'Black' : 'White'} wins on time`,
 }
 
-export function TopBar({ status, turn, isThinking, onNewGame, onFlipBoard }: Props) {
+const isOver = (status: GameStatusType) =>
+  status === 'checkmate' || status === 'stalemate' || status === 'draw' || status === 'timeout'
+
+export function TopBar({ status, turn, isThinking, paused, clockStarted, onNewGame, onFlipBoard, onTogglePause }: Props) {
+  const gameOver = isOver(status)
+  const canPause = clockStarted && !gameOver
+
   return (
     <header className="topbar">
       <div className="brand">
@@ -28,8 +37,10 @@ export function TopBar({ status, turn, isThinking, onNewGame, onFlipBoard }: Pro
         </div>
       </div>
 
-      <div className={`topbar-status status-${status}`}>
-        {isThinking ? (
+      <div className={`topbar-status status-${status} ${paused ? 'status-paused' : ''}`}>
+        {paused ? (
+          <span className="paused-indicator">⏸ Paused</span>
+        ) : isThinking ? (
           <span className="thinking-indicator">
             <span className="dot" /><span className="dot" /><span className="dot" />
             thinking
@@ -43,6 +54,15 @@ export function TopBar({ status, turn, isThinking, onNewGame, onFlipBoard }: Pro
       </div>
 
       <div className="topbar-actions">
+        {canPause && (
+          <button
+            className={`btn ${paused ? 'btn-primary' : 'btn-secondary'} btn-pause`}
+            onClick={onTogglePause}
+            title={paused ? 'Resume game' : 'Pause game'}
+          >
+            {paused ? '▶ Resume' : '⏸ Pause'}
+          </button>
+        )}
         <button className="btn btn-secondary" onClick={onFlipBoard}>Flip</button>
         <button className="btn btn-primary" onClick={onNewGame}>New Game</button>
       </div>

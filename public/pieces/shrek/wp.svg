@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Shadow -->
+  <ellipse cx="50" cy="97" rx="22" ry="5" fill="rgba(0,0,0,0.25)"/>
+  <!-- Body / wooden boy outfit -->
+  <rect x="35" y="65" width="30" height="30" rx="8" fill="#4a8c3a"/>
+  <rect x="42" y="65" width="16" height="30" rx="5" fill="#5aa048"/>
+  <!-- Suspenders -->
+  <path d="M 42 65 L 38 52" stroke="#2a5c20" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 58 65 L 62 52" stroke="#2a5c20" stroke-width="3" stroke-linecap="round"/>
+  <!-- Neck -->
+  <rect x="44" y="50" width="12" height="17" fill="#f5d88a"/>
+  <!-- Head (Pinocchio: round, pale wood) -->
+  <ellipse cx="50" cy="37" rx="20" ry="20" fill="#f5d88a"/>
+  <!-- Pointy hat -->
+  <path d="M 50 17 L 37 37 L 63 37 Z" fill="#cc2200"/>
+  <rect x="35" y="37" width="30" height="6" rx="2" fill="#aa1800"/>
+  <!-- Hat band -->
+  <rect x="35" y="37" width="30" height="4" rx="2" fill="#881400"/>
+  <!-- Long nose (Pinocchio!) -->
+  <path d="M 50 40 L 72 38 L 50 42 Z" fill="#e8c070"/>
+  <!-- Eyes -->
+  <ellipse cx="43" cy="34" rx="5" ry="5" fill="white"/>
+  <ellipse cx="57" cy="34" rx="5" ry="5" fill="white"/>
+  <circle cx="44" cy="35" r="3" fill="#224488"/>
+  <circle cx="58" cy="35" r="3" fill="#224488"/>
+  <circle cx="45" cy="33.5" r="1.2" fill="white"/>
+  <circle cx="59" cy="33.5" r="1.2" fill="white"/>
+  <!-- Smile -->
+  <path d="M 42 46 Q 50 52 58 46" stroke="#c8a070" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Rosy cheeks -->
+  <circle cx="38" cy="42" r="5" fill="#ffaaaa" opacity="0.5"/>
+  <circle cx="62" cy="42" r="5" fill="#ffaaaa" opacity="0.5"/>
+  <!-- Star on hat -->
+  <polygon points="50,20 51.5,24.5 56,24.5 52.5,27 54,31 50,28.5 46,31 47.5,27 44,24.5 48.5,24.5" fill="#FFD700" opacity="0.9"/>
+</svg>

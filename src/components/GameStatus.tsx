@@ -1,10 +1,11 @@
-import type { GameStatus as GameStatusType, Color, TimeControl, BoardTheme } from '../engine/types'
+import type { GameStatus as GameStatusType, Color, TimeControl, BoardTheme, PieceSymbol, CapturedPieces } from '../engine/types'
 import { TIME_CONTROL_OPTIONS, timeControlId, BOARD_THEMES } from '../engine/types'
 
 type Props = {
   status: GameStatusType
   turn: Color
   playerColor: Color
+  username: string
   difficulty: number
   onDifficultyChange: (d: number) => void
   onNewGame: () => void
@@ -15,6 +16,7 @@ type Props = {
   onTimeControlChange: (tc: TimeControl | null) => void
   boardTheme: BoardTheme
   onBoardThemeChange: (t: BoardTheme) => void
+  capturedPieces: CapturedPieces
 }
 
 function formatClock(ms: number): string {
@@ -27,10 +29,29 @@ function formatClock(ms: number): string {
   return `${m}:${String(s).padStart(2, '0')}`
 }
 
+const PIECE_SYMBOLS: Record<Color, Record<PieceSymbol, string>> = {
+  w: { k: '♔', q: '♕', r: '♖', b: '♗', n: '♘', p: '♙' },
+  b: { k: '♚', q: '♛', r: '♜', b: '♝', n: '♞', p: '♟' },
+}
+
+function CapturedBar({ pieces, pieceColor }: { pieces: PieceSymbol[]; pieceColor: Color }) {
+  if (pieces.length === 0) return null
+  return (
+    <div className="captured-bar">
+      {pieces.map((p, i) => (
+        <span key={i} className="captured-piece">
+          {PIECE_SYMBOLS[pieceColor][p]}
+        </span>
+      ))}
+    </div>
+  )
+}
+
 export function GameStatus({
   status,
   turn,
   playerColor,
+  username,
   difficulty,
   onDifficultyChange,
   onNewGame,
@@ -41,6 +62,7 @@ export function GameStatus({
   onTimeControlChange,
   boardTheme,
   onBoardThemeChange,
+  capturedPieces,
 }: Props) {
   const isGameOver =
     status === 'checkmate' || status === 'stalemate' || status === 'draw' || status === 'timeout'
@@ -71,28 +93,41 @@ export function GameStatus({
     return <span className={classes}>{formatClock(ms)}</span>
   }
 
+  const stockfishName = 'Stockfish'
+  const playerName = username || 'You'
+
   return (
     <div className="panel">
       <h3 className="panel-title">Players</h3>
 
+      {/* Black player card */}
       <div className="player-card">
         <span className="player-avatar player-avatar-b">♚</span>
         <div className="player-meta">
-          <span className="player-name">{playerColor === 'b' ? 'You' : 'Stockfish'}</span>
+          <span className="player-name">{playerColor === 'b' ? playerName : stockfishName}</span>
           <span className="player-rating">
-            {playerColor === 'b' ? '' : `Elo ~${difficultyToElo(difficulty)}`}
+            {playerColor !== 'b' ? `Elo ~${difficultyToElo(difficulty)}` : ''}
           </span>
+          <CapturedBar
+            pieces={capturedPieces.byBlack}
+            pieceColor="w"
+          />
         </div>
         {renderClock(blackMs, 'b')}
       </div>
 
+      {/* White player card */}
       <div className="player-card">
         <span className="player-avatar player-avatar-w">♔</span>
         <div className="player-meta">
-          <span className="player-name">{playerColor === 'w' ? 'You' : 'Stockfish'}</span>
+          <span className="player-name">{playerColor === 'w' ? playerName : stockfishName}</span>
           <span className="player-rating">
-            {playerColor === 'w' ? '' : `Elo ~${difficultyToElo(difficulty)}`}
+            {playerColor !== 'w' ? `Elo ~${difficultyToElo(difficulty)}` : ''}
           </span>
+          <CapturedBar
+            pieces={capturedPieces.byWhite}
+            pieceColor="b"
+          />
         </div>
         {renderClock(whiteMs, 'w')}
       </div>
@@ -122,13 +157,15 @@ export function GameStatus({
           {BOARD_THEMES.map((t) => (
             <button
               key={t.id}
-              className={`theme-swatch ${boardTheme === t.id ? 'theme-swatch-active' : ''}`}
+              className={`theme-swatch ${boardTheme === t.id ? 'theme-swatch-active' : ''} ${t.id === 'shrek' ? 'theme-swatch-shrek' : ''}`}
               title={t.label}
               aria-label={`${t.label} board theme`}
               onClick={() => onBoardThemeChange(t.id)}
-              style={{
-                background: `linear-gradient(135deg, ${t.preview[0]} 50%, ${t.preview[1]} 50%)`,
-              }}
+              style={
+                t.id === 'shrek'
+                  ? undefined
+                  : { background: `linear-gradient(135deg, ${t.preview[0]} 50%, ${t.preview[1]} 50%)` }
+              }
             />
           ))}
         </div>

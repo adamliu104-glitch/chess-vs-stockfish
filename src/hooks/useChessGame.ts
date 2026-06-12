@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react'
 import { Chess, type Move } from 'chess.js'
 import type {
-  Square, Color, PieceSymbol, IdedPiece, GameStatus, MoveRecord, TimeControl,
+  Square, Color, PieceSymbol, IdedPiece, GameStatus, MoveRecord, TimeControl, CapturedPieces,
 } from '../engine/types'
 import {
   getBoardPieces,
@@ -13,6 +13,7 @@ import {
   getFen,
   getTurn,
   isGameOver,
+  getCapturedPieces,
 } from '../engine/gameEngine'
 import { useStockfish } from './useStockfish'
 import { useChessSound } from './useChessSound'
@@ -36,6 +37,8 @@ type ChessGameState = {
   timeControl: TimeControl | null
   whiteMs: number | null
   blackMs: number | null
+  paused: boolean
+  capturedPieces: CapturedPieces
 }
 
 /** Delay before the AI's move lands, so it feels like a real opponent */
@@ -110,6 +113,8 @@ export function useChessGame() {
       orientation: 'w',
       playerColor: 'w',
       difficulty: 10,
+      paused: false,
+      capturedPieces: { byWhite: [], byBlack: [] },
       ...prefs,
       timeControl: tc,
       whiteMs: baseMs,
@@ -138,7 +143,7 @@ export function useChessGame() {
 
   /* ── Clock ticking ─────────────────────────────────────── */
   useEffect(() => {
-    if (!state.timeControl || !clockStarted || isOver) return
+    if (!state.timeControl || !clockStarted || isOver || state.paused) return
     let last = Date.now()
     const id = window.setInterval(() => {
       const now = Date.now()
@@ -228,6 +233,7 @@ export function useChessGame() {
         turn,
         checkSquare,
         moveHistory: buildMoveHistory(game),
+        capturedPieces: getCapturedPieces(game),
         selectedSquare: null,
         legalTargets: [],
         ...extra,
@@ -285,7 +291,7 @@ export function useChessGame() {
       const game = gameRef.current
       const { selectedSquare, legalTargets, playerColor, isThinking, status } = state
 
-      if (isThinking || isGameOver(game) || OVER_STATUSES.includes(status)) return
+      if (isThinking || isGameOver(game) || OVER_STATUSES.includes(status) || state.paused) return
       if (getTurn(game) !== playerColor) return
 
       if (selectedSquare) {
@@ -371,6 +377,10 @@ export function useChessGame() {
     setState((prev) => ({ ...prev, difficulty: d }))
   }, [])
 
+  const togglePause = useCallback(() => {
+    setState((prev) => ({ ...prev, paused: !prev.paused }))
+  }, [])
+
   return {
     ...state,
     clockStarted,
@@ -380,5 +390,6 @@ export function useChessGame() {
     flipBoard,
     setDifficulty,
     setTimeControl,
+    togglePause,
   }
 }

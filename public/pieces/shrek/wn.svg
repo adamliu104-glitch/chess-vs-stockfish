@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Shadow -->
+  <ellipse cx="50" cy="97" rx="28" ry="5" fill="rgba(0,0,0,0.25)"/>
+  <!-- Body -->
+  <ellipse cx="50" cy="75" rx="26" ry="22" fill="#8c8c8c"/>
+  <!-- Neck -->
+  <rect x="40" y="55" width="20" height="22" rx="6" fill="#888888"/>
+  <!-- Head (long donkey snout = wider horizontally) -->
+  <ellipse cx="50" cy="38" rx="28" ry="22" fill="#aaaaaa"/>
+  <!-- Long snout -->
+  <path d="M 28 42 Q 22 50 24 60 Q 32 65 40 60 Q 44 52 40 45 Z" fill="#cccccc"/>
+  <!-- Nostril -->
+  <ellipse cx="26" cy="58" rx="4" ry="5" fill="#555555"/>
+  <circle cx="26.5" cy="57" r="2" fill="#888888"/>
+  <!-- Left ear (HUGE) -->
+  <path d="M 32 20 Q 18 0 22 -10 Q 28 5 34 12 Z" fill="#aaaaaa"/>
+  <path d="M 32 20 Q 22 4 25 -5 Q 29 8 33 14 Z" fill="#ddaaaa"/>
+  <!-- Right ear (HUGE) -->
+  <path d="M 68 20 Q 82 0 78 -10 Q 72 5 66 12 Z" fill="#aaaaaa"/>
+  <path d="M 68 20 Q 78 4 75 -5 Q 71 8 67 14 Z" fill="#ddaaaa"/>
+  <!-- Eyes (big and expressive) -->
+  <ellipse cx="58" cy="33" rx="9" ry="9" fill="white"/>
+  <ellipse cx="72" cy="35" rx="7" ry="7" fill="white"/>
+  <circle cx="59" cy="34" r="6" fill="#3a2800"/>
+  <circle cx="73" cy="36" r="5" fill="#3a2800"/>
+  <circle cx="60.5" cy="32" r="2.5" fill="white"/>
+  <circle cx="74" cy="34" r="2" fill="white"/>
+  <!-- Eyelashes -->
+  <path d="M 52 27 Q 55 23 58 25" stroke="#555" stroke-width="1.5" fill="none"/>
+  <path d="M 65 28 Q 68 24 72 27" stroke="#555" stroke-width="1.5" fill="none"/>
+  <!-- Smile (big goofy grin) -->
+  <path d="M 26 62 Q 35 72 44 68" stroke="#888" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Teeth -->
+  <rect x="29" y="63" width="5" height="5" rx="1" fill="white"/>
+  <rect x="35" y="64" width="5" height="4" rx="1" fill="white"/>
+  <!-- Mane -->
+  <path d="M 50 18 Q 45 10 48 4 Q 52 10 55 4 Q 58 10 62 6 Q 60 14 65 20" stroke="#888" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>

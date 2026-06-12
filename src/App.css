@@ -817,3 +817,196 @@ html, body, #root {
   .topbar { padding: 10px 16px; flex-wrap: wrap; }
   .brand-mark { font-size: 26px; }
 }
+
+/* ── Shrek Board Theme ────────────────────────────────────── */
+.board-frame[data-theme='shrek'] {
+  --light-bg:
+    linear-gradient(135deg, rgba(255,255,200,0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 40%, rgba(180,210,60,0.2) 0%, transparent 60%),
+    #c5d67a;
+  --dark-bg:
+    linear-gradient(135deg, rgba(255,255,180,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 40% 60%, rgba(20,60,10,0.3) 0%, transparent 60%),
+    #4a7a2e;
+  --frame-bg:
+    linear-gradient(160deg, rgba(255,255,180,0.06) 0%, transparent 30%),
+    repeating-linear-gradient(
+      93deg,
+      #2a1c08 0px, #3d2c10 8px, #2c1e0a 16px, #4a3618 24px, #251a06 32px
+    );
+  --coord-on-light: #3d5c18;
+  --coord-on-dark: #c5d67a;
+}
+
+/* Swamp mud / mist overlay on squares */
+.board-frame[data-theme='shrek'] .square-light::before,
+.board-frame[data-theme='shrek'] .square-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.board-frame[data-theme='shrek'] .square-light::before {
+  background: radial-gradient(ellipse at 80% 20%, rgba(200,230,120,0.18) 0%, transparent 70%);
+}
+.board-frame[data-theme='shrek'] .square-dark::before {
+  background: radial-gradient(ellipse at 30% 70%, rgba(10,40,5,0.22) 0%, transparent 70%);
+}
+
+/* ── Shrek theme swatch ───────────────────────────────────── */
+.theme-swatch-shrek {
+  background: linear-gradient(135deg, #c5d67a 50%, #4a7a2e 50%) !important;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-swatch-shrek::after {
+  content: '🧅';
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ── Pause overlay on board ───────────────────────────────── */
+.board-pause-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 8, 6, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  backdrop-filter: blur(3px);
+  border-radius: 3px;
+  animation: fade-in 0.15s ease;
+}
+
+.board-pause-text {
+  font-family: monospace;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  color: var(--text-bright);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+  opacity: 0.9;
+}
+
+/* Pause button variant */
+.btn-pause { min-width: 82px; font-size: 12px; }
+
+/* Paused status pill */
+.status-paused {
+  border-color: var(--gold-dim) !important;
+  color: var(--gold) !important;
+}
+
+.paused-indicator {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--gold);
+}
+
+/* ── Captured pieces bar ──────────────────────────────────── */
+.captured-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  margin-top: 4px;
+  min-height: 16px;
+}
+
+.captured-piece {
+  font-size: 13px;
+  line-height: 1;
+  opacity: 0.85;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+}
+
+/* ── Username Modal ───────────────────────────────────────── */
+.username-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 8, 6, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  backdrop-filter: blur(8px);
+  animation: fade-in 0.25s ease;
+}
+
+.username-modal {
+  background: var(--surface);
+  border: 1px solid var(--gold-dim);
+  border-radius: 16px;
+  padding: 44px 52px;
+  text-align: center;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.85), 0 0 40px rgba(212,175,90,0.1);
+  animation: result-pop 0.35s cubic-bezier(0.18, 1.25, 0.4, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 90vw;
+  width: 360px;
+}
+
+.username-logo {
+  font-size: 52px;
+  color: var(--gold);
+  line-height: 1;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5));
+  animation: icon-bounce 0.55s cubic-bezier(0.18, 1.4, 0.4, 1) backwards;
+}
+
+.username-title {
+  font-size: 26px;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  color: var(--text-bright);
+}
+
+.username-subtitle {
+  font-family: monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+.username-input {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text-bright);
+  font-family: 'Palatino', Georgia, serif;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.username-input:focus {
+  border-color: var(--gold-dim);
+  box-shadow: 0 0 0 3px rgba(212,175,90,0.12);
+}
+
+.username-btn {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 14px;
+}
+
+.username-skip {
+  font-size: 11px;
+  padding: 6px 14px;
+  opacity: 0.7;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-decoration: underline;
+}
+.username-skip:hover { opacity: 1; color: var(--text); }

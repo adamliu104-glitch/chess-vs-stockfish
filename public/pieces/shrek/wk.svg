@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Shadow -->
+  <ellipse cx="50" cy="97" rx="30" ry="5" fill="rgba(0,0,0,0.25)"/>
+  <!-- Body / tunic -->
+  <rect x="30" y="63" width="40" height="32" rx="10" fill="#6b4c1e"/>
+  <rect x="37" y="63" width="26" height="32" rx="6" fill="#8a6030"/>
+  <!-- Belt -->
+  <rect x="30" y="77" width="40" height="6" rx="2" fill="#4a3010"/>
+  <rect x="46" y="74" width="8" height="11" rx="2" fill="#c8a030"/>
+  <!-- Neck -->
+  <rect x="43" y="54" width="14" height="12" fill="#7dcb3e"/>
+  <!-- Head -->
+  <ellipse cx="50" cy="40" rx="27" ry="26" fill="#7dcb3e"/>
+  <!-- Left ear (pointing outward) -->
+  <ellipse cx="25" cy="36" rx="7" ry="13" fill="#7dcb3e" transform="rotate(-25,25,36)"/>
+  <ellipse cx="25" cy="36" rx="3.5" ry="7" fill="#5cb82e" transform="rotate(-25,25,36)"/>
+  <!-- Right ear -->
+  <ellipse cx="75" cy="36" rx="7" ry="13" fill="#7dcb3e" transform="rotate(25,75,36)"/>
+  <ellipse cx="75" cy="36" rx="3.5" ry="7" fill="#5cb82e" transform="rotate(25,75,36)"/>
+  <!-- Eyes -->
+  <ellipse cx="40" cy="37" rx="7" ry="7" fill="white"/>
+  <ellipse cx="60" cy="37" rx="7" ry="7" fill="white"/>
+  <circle cx="41.5" cy="38" r="4.5" fill="#2d1f00"/>
+  <circle cx="61.5" cy="38" r="4.5" fill="#2d1f00"/>
+  <circle cx="43" cy="36" r="1.8" fill="white"/>
+  <circle cx="63" cy="36" r="1.8" fill="white"/>
+  <!-- Nose -->
+  <ellipse cx="50" cy="47" rx="8" ry="5.5" fill="#5cb82e"/>
+  <circle cx="45.5" cy="47" r="2.8" fill="#4aa020"/>
+  <circle cx="54.5" cy="47" r="2.8" fill="#4aa020"/>
+  <!-- Smile -->
+  <path d="M 38 54 Q 50 62 62 54" stroke="#3d6018" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Eyebrows (stern) -->
+  <path d="M 33 30 Q 40 26 47 29" stroke="#3d6018" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M 53 29 Q 60 26 67 30" stroke="#3d6018" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Crown -->
+  <path d="M 27 17 L 31 5 L 41 14 L 50 2 L 59 14 L 69 5 L 73 17 Z" fill="#FFD700" stroke="#c89000" stroke-width="1.5"/>
+  <circle cx="50" cy="4" r="3.5" fill="#cc2200"/>
+  <circle cx="39.5" cy="13.5" r="2.5" fill="#0044cc"/>
+  <circle cx="60.5" cy="13.5" r="2.5" fill="#0044cc"/>
+  <rect x="25" y="17" width="50" height="8" rx="3" fill="#e8c000" stroke="#c89000" stroke-width="1"/>
+</svg>

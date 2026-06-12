@@ -11,6 +11,7 @@ type Props = {
   checkSquare: SquareType | null
   orientation: Color
   theme: BoardTheme
+  paused: boolean
   onSquareClick: (square: SquareType) => void
 }
 
@@ -31,6 +32,7 @@ export function Board({
   checkSquare,
   orientation,
   theme,
+  paused,
   onSquareClick,
 }: Props) {
   const ranks = orientation === 'w' ? RANK_LABELS : [...RANK_LABELS].reverse()
@@ -76,11 +78,16 @@ export function Board({
                 className="anim-piece"
                 style={{ transform: `translate(${col * 100}%, ${row * 100}%)` }}
               >
-                <Piece type={p.type} color={p.color} />
+                <Piece type={p.type} color={p.color} theme={theme} />
               </div>
             )
           })}
         </div>
+        {paused && (
+          <div className="board-pause-overlay">
+            <span className="board-pause-text">PAUSED</span>
+          </div>
+        )}
       </div>
     </div>
   )
